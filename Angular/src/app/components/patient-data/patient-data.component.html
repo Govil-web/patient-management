@@ -1,0 +1,28 @@
+<p *ngIf="errorMessage.length!=0" class="text-danger">{{errorMessage}}</p>
+<div class="container">
+    <div>
+        <p><b>Nombre: </b> {{user?.login}} </p>
+    </div>
+    <div *ngIf="pacientes && pacientes.length != 0">
+        <h3>Listado de pacientes</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Documento</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let paciente of pacientes">
+                    <td>{{ paciente.nombre }}</td>
+                    <td>{{ paciente.email }}</td>
+                    <td>{{ paciente.documento }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<div  *ngIf="pacientes.length === 0">
+    <p> No se encontraron pacientes</p>
+</div>
+</div>
