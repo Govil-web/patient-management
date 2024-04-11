@@ -13,6 +13,7 @@ export class PatientService {
   getPaciente():Observable<any>{
     //return this.http.get<User>(environment.urlApi+"usuario/"+id).pipe(
       const token = sessionStorage.getItem("jwtToken");
+      console.log(token);
       const headers = {
         Authorization: `Bearer ${token}`
       };
@@ -20,6 +21,7 @@ export class PatientService {
       catchError(this.handleError)
     )
   }
+
   private handleError(error:HttpErrorResponse){
     if(error.status===0){
       console.error('Se ha producio un error ', error.error);

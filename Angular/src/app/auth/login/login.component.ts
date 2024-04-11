@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit{
       this.loginService.login(this.loginForm.value as LoginRequest).subscribe({
         next: (userData) => {
           console.log(userData);
-        },
+        } ,
         error: (errorData) => {
           //console.error(errorData);
           this.loginError=errorData;

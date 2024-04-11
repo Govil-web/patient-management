@@ -13,6 +13,10 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { PatientDataComponent } from './components/patient-data/patient-data.component';
 import { JwtInterceptorService } from './services/auth/jwt-interceptor.service';
 import { ErrorInterceptorService } from './services/auth/error-interceptor.service';
+import { RegisterComponent } from './components/patient-data/register/register.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -22,7 +26,8 @@ import { ErrorInterceptorService } from './services/auth/error-interceptor.servi
     DashboardComponent,
     LoginComponent,
     NavComponent,
-    PatientDataComponent
+    PatientDataComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
