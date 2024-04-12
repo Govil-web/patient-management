@@ -3,7 +3,7 @@
     <div>
         <p><b>Nombre: </b> {{user?.login}} </p>
     </div>
-    <div *ngIf="pacientes && pacientes.length != 0">
+    <div *ngIf="paginatedPatients && paginatedPatients.length != 0">
         <h3>Listado de pacientes</h3>
         <table class="table">
             <thead>
@@ -14,15 +14,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let paciente of pacientes">
+                <tr *ngFor="let paciente of paginatedPatients">
                     <td>{{ paciente.nombre }}</td>
                     <td>{{ paciente.email }}</td>
                     <td>{{ paciente.documento }}</td>
                 </tr>
             </tbody>
         </table>
+        <button (click)="previousPage()">Anterior</button>
+        <button (click)="nextPage()">Siguiente</button>
     </div>
-    <div  *ngIf="pacientes.length === 0">
+    <div  *ngIf="paginatedPatients.length === 0">
         <p> No se encontraron pacientes</p>
     </div>
 </div>

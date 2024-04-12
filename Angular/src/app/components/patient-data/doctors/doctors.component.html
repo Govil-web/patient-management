@@ -1,0 +1,29 @@
+<div class="container">
+    <br>
+    <div *ngIf="paginatedDoctors && paginatedDoctors.length != 0" >
+        <h3>Listado de doctores</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Documento</th>
+                    <th>Especialidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let doctor of paginatedDoctors">
+                    <td>{{doctor.nombre}}</td>
+                    <td>{{doctor.email}}</td>
+                    <td>{{doctor.documento}}</td>
+                    <td>{{doctor.especialidad}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <button (click)="previousPage()">Anterior</button>
+        <button (click)="nextPage()">Siguiente</button>
+    </div>
+    <div *ngIf="paginatedDoctors.length === 0" >
+        <p> No se encontraron medicos </p>
+    </div>
+</div>
