@@ -1,4 +1,9 @@
+<app-nav></app-nav>
 <div class="container">
+    <div class="p-2 text-bg-success">
+        <p *ngIf="!userLoginOn">Usuario NO Autenticado</p>
+        <p *ngIf="userLoginOn">Usuario Autenticado</p>
+    </div>
     <br>
     <div *ngIf="paginatedDoctors && paginatedDoctors.length != 0" >
         <h3>Listado de doctores</h3>
@@ -20,8 +25,8 @@
                 </tr>
             </tbody>
         </table>
-        <button (click)="previousPage()">Anterior</button>
-        <button (click)="nextPage()">Siguiente</button>
+        <button class="btn btn-dark my-5 mx-2"(click)="previousPage()">Anterior</button>
+        <button class="btn btn-dark my-5 mx-2"(click)="nextPage()">Siguiente</button>
     </div>
     <div *ngIf="paginatedDoctors.length === 0" >
         <p> No se encontraron medicos </p>

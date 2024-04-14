@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { JwtInterceptorService } from './services/auth/jwt-interceptor.service';
 import { ErrorInterceptorService } from './services/auth/error-interceptor.service';
 import { RegisterComponent } from './components/patient-data/register/register.component';
 import { DoctorsComponent } from './components/patient-data/doctors/doctors.component';
+import { IndexComponent } from './shared/index/index/index.component';
 
 
 
@@ -29,13 +31,15 @@ import { DoctorsComponent } from './components/patient-data/doctors/doctors.comp
     NavComponent,
     PatientDataComponent,
     RegisterComponent,
-    DoctorsComponent
+    DoctorsComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS, useClass:JwtInterceptorService, multi:true},

@@ -1,8 +1,5 @@
 <p *ngIf="errorMessage.length!=0" class="text-danger">{{errorMessage}}</p>
 <div class="container">
-    <div>
-        <p><b>Nombre: </b> {{user?.login}} </p>
-    </div>
     <div *ngIf="paginatedPatients && paginatedPatients.length != 0">
         <h3>Listado de pacientes</h3>
         <table class="table">
@@ -21,8 +18,8 @@
                 </tr>
             </tbody>
         </table>
-        <button (click)="previousPage()">Anterior</button>
-        <button (click)="nextPage()">Siguiente</button>
+        <button class="btn btn-dark my-3 mx-2" (click)="previousPage()">Anterior</button>
+        <button class="btn btn-dark my-3 mx-2" (click)="nextPage()">Siguiente</button>
     </div>
     <div  *ngIf="paginatedPatients.length === 0">
         <p> No se encontraron pacientes</p>
