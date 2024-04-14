@@ -16,7 +16,11 @@ import { JwtInterceptorService } from './services/auth/jwt-interceptor.service';
 import { ErrorInterceptorService } from './services/auth/error-interceptor.service';
 import { RegisterComponent } from './components/patient-data/register/register.component';
 import { DoctorsComponent } from './components/patient-data/doctors/doctors.component';
+<<<<<<< HEAD
 import { IndexComponent } from './shared/index/index/index.component';
+=======
+import { RegisterDoctorComponent } from './components/patient-data/register-doctor/register-doctor.component';
+>>>>>>> af97a92caf214e57e062b780a2c879fe9be8606c
 
 
 
@@ -32,7 +36,11 @@ import { IndexComponent } from './shared/index/index/index.component';
     PatientDataComponent,
     RegisterComponent,
     DoctorsComponent,
+<<<<<<< HEAD
     IndexComponent
+=======
+    RegisterDoctorComponent
+>>>>>>> af97a92caf214e57e062b780a2c879fe9be8606c
   ],
   imports: [
     BrowserModule,

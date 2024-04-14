@@ -1,0 +1,44 @@
+<div class="container">
+    <br>
+    <h5>Registro de Médicos</h5>
+
+    <form [formGroup] = "doctors">
+        <label for="nombre">Nombre:</label>
+        <input class="text-danger" type="text" class="form-control" formControlName="nombre" required >
+
+        <label for="email">Email: </label>
+        <input type="text" class="form-control" formControlName="email" required>
+
+        <label for="telefono">Telefono: </label>
+        <input type="text" class="form-control" formControlName="telefono" required>
+
+        <label for="documento">Documento: </label>
+        <input type="text" class="form-control" formControlName="documento" required>
+
+        <label for="especialidad">Especialidad: </label>
+        <input type="text" class="form-control" formControlName="especialidad" required>
+
+        <div formGroupName="direccion">
+            <h5>Direccion</h5>
+            <label for="calle"> Calle:</label>
+            <input id="calle" type="text" class="form-control" formControlName="calle" required>
+
+            <label for="distrito">distrito: </label>
+            <input id="distrito" type="text" class="form-control" formControlName="distrito" required>
+
+            <label for="ciudad">ciudad: </label>
+            <input id="ciudad" type="text" class="form-control" formControlName="ciudad" required>
+
+            <label for="numero">numero: </label>
+            <input id="numero" type="text" class="form-control" formControlName="numero" required>
+
+            <label for="complemento">complemento: </label>
+            <input id="complemento" type="text" class="form-control" formControlName="complemento" required>
+        </div>
+        <br>
+        <button type="submit" (click)="create()"  class="btn btn-primary">
+            Enviar
+        </button>
+            
+    </form>
+</div>
