@@ -4,11 +4,9 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './components/patient-data/register/register.component';
 import { DoctorsComponent } from './components/patient-data/doctors/doctors.component';
-<<<<<<< HEAD
 import { IndexComponent } from './shared/index/index/index.component';
-=======
 import { RegisterDoctorComponent } from './components/patient-data/register-doctor/register-doctor.component';
->>>>>>> af97a92caf214e57e062b780a2c879fe9be8606c
+
 
 const routes: Routes = [
   {path:"", redirectTo:"index", pathMatch:"full"},
