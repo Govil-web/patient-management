@@ -15,6 +15,7 @@ import { JwtInterceptorService } from './services/auth/jwt-interceptor.service';
 import { ErrorInterceptorService } from './services/auth/error-interceptor.service';
 import { RegisterComponent } from './components/patient-data/register/register.component';
 import { DoctorsComponent } from './components/patient-data/doctors/doctors.component';
+import { RegisterDoctorComponent } from './components/patient-data/register-doctor/register-doctor.component';
 
 
 
@@ -29,7 +30,8 @@ import { DoctorsComponent } from './components/patient-data/doctors/doctors.comp
     NavComponent,
     PatientDataComponent,
     RegisterComponent,
-    DoctorsComponent
+    DoctorsComponent,
+    RegisterDoctorComponent
   ],
   imports: [
     BrowserModule,
