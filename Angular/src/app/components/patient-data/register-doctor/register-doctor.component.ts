@@ -3,6 +3,8 @@ import { FormBuilder,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DoctorCreate } from 'src/app/services/doctor-create/doctor-create';
 import { DoctorCreateService } from 'src/app/services/doctor-create/doctor-create.service';
+import { Especialidad } from 'src/app/services/doctor-create/Especialidad';
+
 
 @Component({
   selector: 'app-register-doctor',
@@ -12,6 +14,7 @@ import { DoctorCreateService } from 'src/app/services/doctor-create/doctor-creat
 export class RegisterDoctorComponent {
 
   registerError:string="";
+  especialidades = Especialidad;
 
   doctors = this.formBuilder.group({
     nombre: ['',Validators.required],
@@ -68,4 +71,6 @@ export class RegisterDoctorComponent {
 
     }
   }
+  
+  
 }

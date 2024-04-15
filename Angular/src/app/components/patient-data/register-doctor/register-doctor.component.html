@@ -1,3 +1,4 @@
+<app-nav></app-nav>
 <div class="container">
     <br>
     <h5>Registro de Médicos</h5>
@@ -15,9 +16,12 @@
         <label for="documento">Documento: </label>
         <input type="text" class="form-control" formControlName="documento" required>
 
-        <label for="especialidad">Especialidad: </label>
-        <input type="text" class="form-control" formControlName="especialidad" required>
-
+        <label for="especialidad">Especialidad:</label>
+        <select class="form-control" formControlName="especialidad" required>
+        <option *ngFor="let item of especialidades | enumToArray" [value]="item.value">
+            {{ item.value }}
+        </option>
+        </select>
         <div formGroupName="direccion">
             <h5>Direccion</h5>
             <label for="calle"> Calle:</label>

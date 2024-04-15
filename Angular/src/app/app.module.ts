@@ -18,6 +18,7 @@ import { RegisterComponent } from './components/patient-data/register/register.c
 import { DoctorsComponent } from './components/patient-data/doctors/doctors.component';
 import { IndexComponent } from './shared/index/index/index.component';
 import { RegisterDoctorComponent } from './components/patient-data/register-doctor/register-doctor.component';
+import { EnumToArrayPipe } from './pipes/enum-to-array.pipe';
 
 
 
@@ -35,7 +36,8 @@ import { RegisterDoctorComponent } from './components/patient-data/register-doct
     RegisterComponent,
     DoctorsComponent,
     IndexComponent,
-    RegisterDoctorComponent
+    RegisterDoctorComponent,
+    EnumToArrayPipe
 
   ],
   imports: [

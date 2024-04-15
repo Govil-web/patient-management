@@ -1,9 +1,11 @@
+import { Especialidad } from "./Especialidad"
+
 export interface DoctorCreate{
     nombre: string,
 	email: string,
 	documento: string,
 	telefono: string,
-	especialidad: string,
+	especialidad: Especialidad,
 	direccion: {
         calle:string,
         distrito:string,

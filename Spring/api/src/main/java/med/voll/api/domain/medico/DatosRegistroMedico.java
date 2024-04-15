@@ -18,7 +18,7 @@ public record DatosRegistroMedico(
         @NotBlank
         String telefono,
         @NotBlank
-        @Pattern(regexp = "\\d{6,10}")
+        @Pattern(regexp = "^\\d{6,10}$")
         String documento,
         @NotNull
         Especialidad especialidad,
