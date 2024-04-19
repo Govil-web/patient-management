@@ -6,6 +6,7 @@ import { RegisterComponent } from './components/patient-data/register/register.c
 import { DoctorsComponent } from './components/patient-data/doctors/doctors.component';
 import { IndexComponent } from './shared/index/index/index.component';
 import { RegisterDoctorComponent } from './components/patient-data/register-doctor/register-doctor.component';
+import { ConsultarComponent } from './components/patient-data/consultar/consultar.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path:"login", component:LoginComponent},
   {path:"register", component:RegisterComponent},
   {path:"doctors", component:DoctorsComponent},
-  {path:"register-doctor", component:RegisterDoctorComponent}
+  {path:"register-doctor", component:RegisterDoctorComponent},
+  {path:"consultar", component:ConsultarComponent}
 
 ];
 
