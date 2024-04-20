@@ -1,10 +1,13 @@
 package med.voll.api.domain.medico;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.*;
 
 import lombok.*;
 import med.voll.api.domain.direccion.Direccion;
 
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor

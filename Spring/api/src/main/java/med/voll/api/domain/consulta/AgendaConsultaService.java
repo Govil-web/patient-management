@@ -28,6 +28,10 @@ public class AgendaConsultaService {
     @Autowired
     private List<ValidadorCancelamientoDeConsulta> validadoresCancelamiento;
 
+    public List<Consulta> consultarConsultas(){
+        return consultaRepository.findAll();
+    }
+
     public DatosDetalleConsulta agendar(DatosAgendarConsulta datos){
 
         if(!pacienteRepository.findById(datos.idPaciente()).isPresent()){

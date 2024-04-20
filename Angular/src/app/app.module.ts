@@ -21,6 +21,7 @@ import { IndexComponent } from './shared/index/index/index.component';
 import { RegisterDoctorComponent } from './components/patient-data/register-doctor/register-doctor.component';
 import { EnumToArrayPipe } from './pipes/enum-to-array.pipe';
 import { ConsultarComponent } from './components/patient-data/consultar/consultar.component';
+import { ListarCitasComponent } from './listar-citas/listar-citas/listar-citas.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ConsultarComponent } from './components/patient-data/consultar/consulta
     IndexComponent,
     RegisterDoctorComponent,
     EnumToArrayPipe,
-    ConsultarComponent
+    ConsultarComponent,
+    ListarCitasComponent
   ],
   imports: [
     BrowserModule,

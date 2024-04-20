@@ -7,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 import med.voll.api.domain.consulta.AgendaConsultaService;
 import med.voll.api.domain.consulta.DatosAgendarConsulta;
 import med.voll.api.domain.consulta.DatosCancelamientoConsulta;
-import med.voll.api.domain.consulta.DatosDetalleConsulta;
 import med.voll.api.infra.errores.ValidacionDeIntegridad;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +24,17 @@ public class ConsultaController {
 
     @Autowired
     private AgendaConsultaService servicio;
+
+    @GetMapping
+    @Operation(
+            summary = "consulta las consultas agendadas",
+            description = "",
+            tags = { "consulta", "get" })
+    public ResponseEntity<?> consultar(){
+        var response = servicio.consultarConsultas();
+        return ResponseEntity.ok(response);
+    }
+
     @PostMapping
     @Transactional
     @Operation(

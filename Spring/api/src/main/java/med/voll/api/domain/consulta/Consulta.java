@@ -11,6 +11,9 @@ import med.voll.api.domain.paciente.Paciente;
 import java.time.LocalDateTime;
 import java.time.temporal.Temporal;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor

@@ -7,6 +7,7 @@ import { DoctorsComponent } from './components/patient-data/doctors/doctors.comp
 import { IndexComponent } from './shared/index/index/index.component';
 import { RegisterDoctorComponent } from './components/patient-data/register-doctor/register-doctor.component';
 import { ConsultarComponent } from './components/patient-data/consultar/consultar.component';
+import { ListarCitasComponent } from './listar-citas/listar-citas/listar-citas.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path:"register", component:RegisterComponent},
   {path:"doctors", component:DoctorsComponent},
   {path:"register-doctor", component:RegisterDoctorComponent},
-  {path:"consultar", component:ConsultarComponent}
+  {path:"consultar", component:ConsultarComponent},
+  {path:"listar-consultas", component:ListarCitasComponent}
 
 ];
 
