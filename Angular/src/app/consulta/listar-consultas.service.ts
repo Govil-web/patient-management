@@ -6,6 +6,7 @@ import { Observable, catchError, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class ListarConsultasService {
+  private urlBase = 'https://patient-management.azurewebsites.net/';
 
   constructor(private http:HttpClient) { }
   getConsultas():Observable<any>{
@@ -13,7 +14,7 @@ export class ListarConsultasService {
     const headers = {
       Authorization: `Bearer ${token}`
     };
-    return this.http.get<any>("v1/api/"+"consultas", {headers}).pipe(
+    return this.http.get<any>(this.urlBase+"v1/api/"+"consultas", {headers}).pipe(
       catchError(this.handleError)
     )
 }

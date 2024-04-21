@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class LoginService {
+  private urlBase = 'https://patient-management.azurewebsites.net/';
 
   currentUserLoginOn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   currentUserData: BehaviorSubject<String> =new BehaviorSubject<String>("");
@@ -20,7 +21,7 @@ export class LoginService {
 
   login(credentials:LoginRequest):Observable<any>{
     //return this.http.post<any>(environment.urlHost+"login", credentials).pipe(  
-    return this.http.post<any>("v1/api/"+"login",  credentials).pipe(
+    return this.http.post<any>(this.urlBase+"v1/api/"+"login",  credentials).pipe(
       tap( (userData) => {
         sessionStorage.setItem("jwtToken", userData.jwtToken);
         this.currentUserData.next(userData.jwtToken);

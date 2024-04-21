@@ -12,6 +12,7 @@ export class ConsultaService {
 
   currentUserLoginOn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   currentUserData: BehaviorSubject<string> = new BehaviorSubject<string>("");
+  private urlBase = 'https://patient-management.azurewebsites.net/';
 
   constructor(private http: HttpClient) {
     this.currentUserLoginOn = new BehaviorSubject<boolean>(sessionStorage.getItem("jwtToken")!=null);
@@ -19,7 +20,7 @@ export class ConsultaService {
   }
 
   postConsultar(body: Consulta): Observable<any> {
-    return this.http.post<any>("v1/api/consultas", body).pipe(
+    return this.http.post<any>(this.urlBase+"v1/api/consultas", body).pipe(
       tap((userData) => {
         sessionStorage.setItem("jwtToken", userData.jwtToken);
         this.currentUserData.next(userData.jwtToken);

@@ -8,12 +8,13 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class UserService {
+  private urlBase = 'https://patient-management.azurewebsites.net/';
 
   constructor(private http:HttpClient) { }
 
   getUser(id:number):Observable<User>{
     //return this.http.get<User>(environment.urlApi+"usuario/"+id).pipe(
-      return this.http.get<User>("v1/api/"+"usuario/"+id).pipe(
+      return this.http.get<User>(this.urlBase+"v1/api/"+"usuario/"+id).pipe(
       catchError(this.handleError)
     )
   }
