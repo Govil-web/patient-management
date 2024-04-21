@@ -19,7 +19,7 @@ jobs:
       - name: Set up Java version
         uses: actions/setup-java@v1
         with:
-          java-version: 'java21'
+          java-version: '17'
 
       - name: Build with Maven
         run: mvn clean install
@@ -48,9 +48,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_A6CC93F1380C4DF9B06EAA2192D26720 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_F13B12D18BCB4DFB8164689B656BDED3 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_FBBC40529E5348F5AF4B1DEA17EF2A7E }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_88E2C103F4624EAC9F51EE9DEB6E059B }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_348EBB41B06C4DDBB7629551AB3E8E1B }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_71A119692D91438C9FFC098F49666031 }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
