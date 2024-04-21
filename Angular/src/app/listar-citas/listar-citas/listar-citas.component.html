@@ -14,12 +14,15 @@
     </thead>
     <tbody>
         <tr *ngFor="let consulta of paginatedConsultas">
-        <td>{{ consulta.paciente.nombre }}</td>
+        <ng-container *ngIf="consulta.motivoCancelamiento !== 'OTROS'">
+    <td>{{ consulta.paciente.nombre }}</td>
         <td>{{ consulta.paciente.documento }}</td>
         <td>{{ consulta.medico.nombre }}</td>
         <td>{{ consulta.medico.especialidad }}</td>
         <td>{{ formatDate(consulta.data)| date: 'medium' }}</td>
-        </tr>
+        <td><button class="btn btn-danger" (click)="cancelarConsulta(consulta.id, 'OTROS')">Cancelar</button></td>
+    </ng-container>
+    </tr>
     </tbody>
     </table>
         <button class="btn btn-dark my-5 mx-2"(click)="previousPage()">Anterior</button>

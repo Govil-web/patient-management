@@ -22,6 +22,9 @@ import { RegisterDoctorComponent } from './components/patient-data/register-doct
 import { EnumToArrayPipe } from './pipes/enum-to-array.pipe';
 import { ConsultarComponent } from './components/patient-data/consultar/consultar.component';
 import { ListarCitasComponent } from './listar-citas/listar-citas/listar-citas.component';
+import { ConfirmDialogComponent } from './components/patient-data/confirm-dialog/confirm-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -38,14 +41,17 @@ import { ListarCitasComponent } from './listar-citas/listar-citas/listar-citas.c
     RegisterDoctorComponent,
     EnumToArrayPipe,
     ConsultarComponent,
-    ListarCitasComponent
+    ListarCitasComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatSnackBarModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },

@@ -11,5 +11,5 @@ export interface ListarConsulta {
       documento: string;
     };
     data: number[];
-    motivoCancelamiento: string | null;
+    motivoCancelamiento: string;
   }

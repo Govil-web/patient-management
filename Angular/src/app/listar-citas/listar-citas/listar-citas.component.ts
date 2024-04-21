@@ -9,6 +9,12 @@ import { environment } from 'src/environments/environment';
 import { ListarConsulta } from 'src/app/consulta/listar-consulta';
 import { ListarConsultasService } from 'src/app/consulta/listar-consultas.service';
 import { Paciente } from 'src/app/services/pacient/Paciente';
+import { CancelarService } from 'src/app/services/cancelar/cancelar.service';
+import { CancelarConsulta } from 'src/app/consulta/cancelar-consultas';
+import { ConsultaService } from 'src/app/services/consulta/consulta.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from 'src/app/components/patient-data/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-listar-citas',
@@ -21,10 +27,12 @@ export class ListarCitasComponent {
   userLoginOn:boolean=false;
   editMode:boolean=false;
   consultas:ListarConsulta[] = [];
+  deleteConsult: CancelarConsulta[] = [];
+  totalConsultas: number = 0;
   
 
   currentPage: number = 1;
-  itemsPerPage: number = 5; // Puedes ajustar esto según tus necesidades
+  itemsPerPage: number = 10; // Puedes ajustar esto según tus necesidades
 
   registerForm=this.formBuilder.group({
     id:[''],
@@ -34,7 +42,8 @@ export class ListarCitasComponent {
   Object: any;
 
 
-  constructor(private userService:UserService, private formBuilder:FormBuilder, private loginService:LoginService, private listarConsultaService:ListarConsultasService) {
+  constructor(private userService:UserService, private formBuilder:FormBuilder, private loginService:LoginService, 
+    private listarConsultaService:ListarConsultasService, private cancelarService: CancelarService, private consultaService: ConsultaService, private dialog: MatDialog, private snackBar: MatSnackBar) {
     this.userService.getUser(environment.userId).subscribe({
       next: (userData) => {
         this.user=userData;
@@ -53,12 +62,14 @@ export class ListarCitasComponent {
       this.userLoginOn=userLoginOn;
     }
     })
+   
 
     this.listarConsultaService.getConsultas().subscribe({
       next:(consultaData)=>{
         console.log('datos recuperados: ', JSON.stringify(consultaData));
         if (consultaData && Array.isArray(consultaData)) {
           this.consultas=consultaData;
+         
         }else{
           console.log('Datos de medicos no válidos recibidos del backend.');
         }
@@ -67,7 +78,67 @@ export class ListarCitasComponent {
         console.error('error al recuperar datos de medicos: ', errorData);
       }
     });
-    
+
+
+}
+
+cancelarConsulta(idConsulta: number, motivo: string) {
+  const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+    width: '250px',
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    if (result) {
+      // Si el usuario confirmó, procede con la cancelación de la consulta
+      this.cancelarService.cancelarConsulta({ idConsulta, motivo })
+        .subscribe(
+          () => {
+            // Consulta cancelada exitosamente
+            console.log('Consulta cancelada');
+            // Actualizar la lista de consultas
+            this.actualizarListaConsultas();
+            // Mostrar mensaje de éxito
+            this.mostrarMensajeExito('Consulta cancelada con éxito');
+          },
+          (error) => {
+            // Manejo de errores
+            console.error('Error al cancelar la consulta:', error);
+            console.log(idConsulta, motivo);
+            this.mostrarMensajeError('Error al cancelar la consulta');
+          }
+        );
+    }
+  });
+}
+
+mostrarMensajeExito(mensaje: string) {
+  this.snackBar.open(mensaje, 'Cerrar', {
+    duration: 3000, // Duración del mensaje en milisegundos
+    panelClass: ['snackbar-exito'], // Clase CSS para el estilo del mensaje
+  });
+}
+
+  actualizarListaConsultas() {
+    this.listarConsultaService.getConsultas().subscribe(
+      (consultasActualizadas) => {
+        console.log('datos recuperados: ', JSON.stringify(consultasActualizadas));
+        if (consultasActualizadas && Array.isArray(consultasActualizadas)) {
+          this.consultas = consultasActualizadas;
+        } else {
+          console.log('Datos de consultas no válidos recibidos del backend.');
+        }
+      },
+      (error) => {
+        console.error('Error al obtener las consultas actualizadas:', error);
+        this.mostrarMensajeError('Error al obtener las consultas actualizadas');
+      }
+    );
+  }
+
+  mostrarMensajeError(mensaje: string) {
+    console.error(mensaje);
+    // Aquí puedes implementar la lógica para mostrar el mensaje de error al usuario
+    // Por ejemplo, utilizando un componente de Angular Material o una alerta
   }
 
 
@@ -99,5 +170,6 @@ export class ListarCitasComponent {
     }
     return new Date(); // O cualquier otro valor por defecto que consideres apropiado
   }
+  
 
 }

@@ -1,3 +1,9 @@
 footer {
     background-color: black;
+    position: sticky;
+  bottom: 0;
+  width: 100%;
+  background-color: #f8f9fa; /* Cambia el color de fondo según tu preferencia */
+  padding: 10px 0; /* Ajusta el espaciado superior e inferior según sea necesario */
+  text-align: center;
 }
