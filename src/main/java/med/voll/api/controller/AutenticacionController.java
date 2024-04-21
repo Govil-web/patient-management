@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/v1/api/login")
 @Tag(name = "Autenticacion", description = "obtiene el token para el usuario asignado que da acceso al resto de endpoint")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*")    
 public class AutenticacionController {
 
     @Autowired
