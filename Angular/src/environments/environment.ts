@@ -1,6 +1,6 @@
 export const environment = {
     production: false,
-    urlHost: "https://patient-management.azurewebsites.net/",
-    urlApi: "https://patient-management.azurewebsites.net/v1/api/",
+    urlHost: "http://localhost:8080/",
+    urlApi: "http://localhost:8080/v1/api/",
     userId:1
 };

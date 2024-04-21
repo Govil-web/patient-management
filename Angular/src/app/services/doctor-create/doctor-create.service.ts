@@ -7,7 +7,7 @@ import { DoctorCreate } from './doctor-create';
   providedIn: 'root'
 })
 export class DoctorCreateService {
-  private urlBase = 'https://patient-management.azurewebsites.net/';
+  
 
   currentUserLoginOn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   currentUserData: BehaviorSubject<String> =new BehaviorSubject<String>("");
@@ -17,7 +17,7 @@ export class DoctorCreateService {
   }
 
   createDoctor(body: DoctorCreate): Observable<any>{
-    return this.http.post<any>(this.urlBase + "v1/api/"+"medicos", body).pipe(
+    return this.http.post<any>("v1/api/"+"medicos", body).pipe(
       tap((userData) =>{
         sessionStorage.setItem("jwtToken", userData.jwtToken);
         this.currentUserData.next(userData.jwtToken);

@@ -8,7 +8,7 @@ import { Paciente } from './Paciente';
   providedIn: 'root'
 })
 export class PatientService {
-  private urlBase = 'https://patient-management.azurewebsites.net/';
+  
 
   constructor(private http: HttpClient) { }
 
@@ -17,7 +17,7 @@ export class PatientService {
     const headers = {
       Authorization: `Bearer ${token}`
     };
-    return this.http.get<any>(this.urlBase +"v1/api/pacientes", { headers }).pipe(
+    return this.http.get<any>("v1/api/pacientes", { headers }).pipe(
       catchError(this.handleError)
     );
   }

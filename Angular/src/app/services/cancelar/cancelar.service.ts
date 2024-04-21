@@ -17,7 +17,7 @@ export class CancelarService {
   }
 
   cancelarConsulta(body: CancelarConsulta): Observable<any> {
-    const url = `https://patient-management.azurewebsites.net/v1/api/consultas`;
+    const url = `v1/api/consultas`;
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
   
     return this.http.delete(url, { headers, body });
