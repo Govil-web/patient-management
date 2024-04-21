@@ -20,6 +20,7 @@ import java.net.URI;
 
 @RestController
 @RequestMapping("v1/api/medicos")
+@CrossOrigin(origins = "*")
 public class MedicoController {
 
     @Autowired
