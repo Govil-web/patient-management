@@ -14,8 +14,13 @@ public class UsuarioController {
     @Autowired
     public UsuarioRepository usuarioRepository;
 
-    @GetMapping("/{id}")
+    @PostMapping("/create")
+    public ResponseEntity<Usuario> createUser(@RequestBody Usuario usuario){
+        Usuario usuarioSalvo = usuarioRepository.save(usuario);
+        return ResponseEntity.ok(usuarioSalvo);
+    }
 
+    @GetMapping("/{id}")
     public ResponseEntity<Usuario> getUser(@PathVariable Long id){
         Usuario usuario = usuarioRepository.findById(id).orElseThrow();
         return ResponseEntity.ok(usuario);

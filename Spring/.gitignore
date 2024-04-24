@@ -20,7 +20,7 @@
 /db/
 
 # Compiled Java classes
-/target/
+##/target/
 /out/
 
 # Compiled TypeScript files
