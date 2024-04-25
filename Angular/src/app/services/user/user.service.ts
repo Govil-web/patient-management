@@ -4,6 +4,7 @@ import { Observable, catchError, throwError } from 'rxjs';
 import { User } from '../auth/user';
 import { environment } from 'src/environments/environment';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -12,8 +13,8 @@ export class UserService {
   constructor(private http:HttpClient) { }
 
   getUser(id:number):Observable<User>{
-    //return this.http.get<User>(environment.urlApi+"usuario/"+id).pipe(
-      return this.http.get<User>("v1/api/"+"usuario/"+id).pipe(
+    return this.http.get<User>(environment.urlHost+"usuario/"+id).pipe(
+      //return this.http.get<User>("v1/api/"+"usuario/"+id).pipe(
       catchError(this.handleError)
     )
   }

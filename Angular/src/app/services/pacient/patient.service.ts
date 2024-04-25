@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Paciente } from './Paciente';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,8 @@ export class PatientService {
     const headers = {
       Authorization: `Bearer ${token}`
     };
-    return this.http.get<any>("v1/api/pacientes", { headers }).pipe(
+    //return this.http.get<any>("v1/api/pacientes", { headers }).pipe(
+      return this.http.get<any>(environment.urlHost+"pacientes", { headers }).pipe(
       catchError(this.handleError)
     );
   }

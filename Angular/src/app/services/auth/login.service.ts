@@ -20,8 +20,8 @@ export class LoginService {
   }
 
   login(credentials:LoginRequest):Observable<any>{
-    //return this.http.post<any>(environment.urlHost+"login", credentials).pipe(  
-    return this.http.post<any>("v1/api/"+"login",  credentials).pipe(
+    return this.http.post<any>(environment.urlHost+"login", credentials).pipe(  
+    //return this.http.post<any>("v1/api/"+"login",  credentials).pipe(
       tap( (userData) => {
         sessionStorage.setItem("jwtToken", userData.jwtToken);
         this.currentUserData.next(userData.jwtToken);

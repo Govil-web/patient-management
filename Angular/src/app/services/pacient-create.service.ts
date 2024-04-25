@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { LoginService } from './auth/login.service';
 import { Observable, catchError, tap, throwError, BehaviorSubject, map } from 'rxjs';
 import { PacientCreate } from './pacient-create';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,8 @@ export class PacientCreateService {
   }
 
   savePaciente(body: PacientCreate): Observable<any> {
-    return this.http.post<any>("v1/api/"+"pacientes", body).pipe(
+    //return this.http.post<any>("v1/api/"+"pacientes", body).pipe(
+      return this.http.post<any>(environment.urlHost+"pacientes", body).pipe(
       tap( (userData) =>{
         sessionStorage.setItem("jwtToken", userData.jwtToken);
         this.currentUserData.next(userData.jwtToken);

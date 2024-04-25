@@ -1,6 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -15,7 +16,8 @@ export class DoctorService {
     const headers = {
       Authorization: `Bearer ${token}`
     };
-    return this.http.get<any>("v1/api/"+"medicos", {headers}).pipe(
+    //return this.http.get<any>("v1/api/"+"medicos", {headers}).pipe(
+      return this.http.get<any>(environment.urlHost+"medicos", {headers}).pipe(
       catchError(this.handleError)
     )
   }

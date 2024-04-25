@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, catchError, map, tap, throwError } from 'rxjs';
 import { CancelarConsulta } from 'src/app/consulta/cancelar-consultas';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class CancelarService {
   }
 
   cancelarConsulta(body: CancelarConsulta): Observable<any> {
-    const url = `v1/api/consultas`;
+    const url = environment.urlHost+`consultas`;
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
   
     return this.http.delete(url, { headers, body });

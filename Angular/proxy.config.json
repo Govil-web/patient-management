@@ -1,7 +1,8 @@
 {
     "/v1/api/*":{
-        "target":"http://localhost:8080/",
-        "secure":false,
-        "logLevel":"debug"
+        "target":"https://backend-patient-management-9p98.onrender.com",
+        "secure":true,
+        "logLevel":"debug",
+        "changeOrigin":true
     }
 }

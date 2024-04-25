@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Consulta } from './Consulta';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,8 @@ export class ConsultaService {
   }
 
   postConsultar(body: Consulta): Observable<any> {
-    return this.http.post<any>("v1/api/consultas", body).pipe(
+    //return this.http.post<any>("v1/api/consultas", body).pipe(
+      return this.http.post<any>(environment.urlHost+"consultas", body).pipe(
       tap((userData) => {
         sessionStorage.setItem("jwtToken", userData.jwtToken);
         this.currentUserData.next(userData.jwtToken);

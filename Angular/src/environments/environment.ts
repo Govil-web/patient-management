@@ -1,6 +1,6 @@
 export const environment = {
-    production: false,
-    urlHost: "http://localhost:8080/",
-    urlApi: "http://localhost:8080/v1/api/",
+    production: true,
+    urlApi: "https://backend-patient-management-9p98.onrender.com/",
+    urlHost: "https://backend-patient-management-9p98.onrender.com/v1/api/",
     userId:1
 };

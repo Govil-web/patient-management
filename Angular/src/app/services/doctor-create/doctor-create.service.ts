@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, catchError, map, tap, throwError } from 'rxjs';
 import { DoctorCreate } from './doctor-create';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,8 @@ export class DoctorCreateService {
   }
 
   createDoctor(body: DoctorCreate): Observable<any>{
-    return this.http.post<any>("v1/api/"+"medicos", body).pipe(
+    //return this.http.post<any>("v1/api/"+"medicos", body).pipe(
+    return this.http.post<any>(environment.urlHost+"medicos", body).pipe(
       tap((userData) =>{
         sessionStorage.setItem("jwtToken", userData.jwtToken);
         this.currentUserData.next(userData.jwtToken);
