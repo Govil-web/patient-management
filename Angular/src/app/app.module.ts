@@ -25,6 +25,7 @@ import { ListarCitasComponent } from './listar-citas/listar-citas/listar-citas.c
 import { ConfirmDialogComponent } from './components/patient-data/confirm-dialog/confirm-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { LoadingComponent } from './components/patient-data/loading/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     EnumToArrayPipe,
     ConsultarComponent,
     ListarCitasComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

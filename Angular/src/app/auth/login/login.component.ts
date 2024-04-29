@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/auth/login.service';
 import { LoginRequest } from 'src/app/services/auth/loginRequest';
+import { LoadingService } from 'src/app/services/loading/loading.service';
 
 @Component({
   selector: 'app-login',
@@ -11,11 +12,12 @@ import { LoginRequest } from 'src/app/services/auth/loginRequest';
 })
 export class LoginComponent implements OnInit{
   loginError:string="";
+  
   loginForm=this.formBuilder.group({
     login:['', Validators.required],
     clave: ['',Validators.required]
   })
-  constructor(private formBuilder:FormBuilder, private router:Router, private loginService:LoginService) { }
+  constructor(private formBuilder:FormBuilder, private router:Router, private loginService:LoginService, private loadingService: LoadingService) { }
 
   ngOnInit(): void {
   }
@@ -31,6 +33,8 @@ export class LoginComponent implements OnInit{
   iniciar(){
     if(this.loginForm.valid){
       this.loginError="";
+      this.loadingService.show();
+
       this.loginService.login(this.loginForm.value as LoginRequest).subscribe({
         next: (userData) => {
           console.log(userData);
@@ -38,11 +42,13 @@ export class LoginComponent implements OnInit{
         error: (errorData) => {
           //console.error(errorData);
           this.loginError=errorData;
+          this.loadingService.hide();
         },
         complete: () => {
           console.info("Login completo");
           this.router.navigateByUrl('/inicio');
           this.loginForm.reset();
+          this.loadingService.hide();
         }
       })
 
