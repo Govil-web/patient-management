@@ -27,15 +27,24 @@ Bienvenido al **Sistema de Gestión de Citas Médicas**, una aplicación web mod
 - Demostrar habilidades en el uso de tecnologías modernas y patrones de diseño.
 
 ## **Accede a la carpeta del backend**:
-![img icons8](https://github.com/user-attachments/assets/2f72efa1-183d-4398-8521-b215ba261fa8)Copiar código
+Copiar código
+```
 cd backend
+```
+Copiar código
+
 * Configura la base de datos: Edita el archivo application.properties para incluir tu configuración de MySQL.
 * Instala las dependencias:
-![img icons8](https://github.com/user-attachments/assets/2f72efa1-183d-4398-8521-b215ba261fa8)Copiar código
+Copiar código
+```
 mvn install
+```
 * Ejecuta la aplicación:
-![img icons8](https://github.com/user-attachments/assets/2f72efa1-183d-4398-8521-b215ba261fa8)Copiar código
+Copiar código
+```
 mvn spring-boot:run
+```
+
 
 
 
