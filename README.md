@@ -26,7 +26,7 @@ Bienvenido al **Sistema de Gestión de Citas Médicas**, una aplicación web mod
 - Aplicar buenas prácticas en desarrollo web, seguridad y arquitectura de software.
 - Demostrar habilidades en el uso de tecnologías modernas y patrones de diseño.
 
-## **Accede a la carpeta del backend**:
+## <img src="https://img.icons8.com/ios-filled/50/000000/folder-invoices.png" alt="Carpeta del Backend" width="30"/>Accede a la carpeta del backend:
 Copiar código
 ```
 cd backend
@@ -44,6 +44,29 @@ Copiar código
 ```
 mvn spring-boot:run
 ```
+*Configuración del Frontend
+## <img src="https://img.icons8.com/ios-filled/50/000000/folder-invoices.png" alt="Carpeta del Frontend" width="30"/>Accede a la carpeta del frontend
+Copiar codigo
+```
+cd ../frontend
+```
+*Instala las dependencias
+Copia codigo
+```
+npm install
+```
+*Ejecuta la aplicacion
+Copia el codigo
+```
+ng serve
+```
+* Accede a la aplicación en: http://localhost:4200
+📋 Notas Adicionales
+* Documentación API: Puedes consultar la documentación de la API en http://localhost:8080/swagger-ui.html.
+
+* Contribuciones: Las contribuciones son bienvenidas. Abre un issue o un pull request si tienes sugerencias o mejoras.
+
+
 
 
 
